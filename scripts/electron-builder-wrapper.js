@@ -46,9 +46,9 @@ const runBuilder = function (targetGroup) {
     // the appx build fails if CSC_* or WIN_CSC_* variables are set
     const shouldStripCSC = (targetGroup === 'appx');
     const childEnvironment = shouldStripCSC ? stripCSC(process.env) : process.env;
-    if ((targetGroup === 'nsis') && !(childEnvironment.CSC_LINK || childEnvironment.WIN_CSC_LINK)) {
-        throw new Error(`NSIS build requires CSC_LINK or WIN_CSC_LINK`);
-    }
+    // if ((targetGroup === 'nsis') && !(childEnvironment.CSC_LINK || childEnvironment.WIN_CSC_LINK)) {
+    //     throw new Error(`NSIS build requires CSC_LINK or WIN_CSC_LINK`);
+    // }
     const platformFlag = getPlatformFlag();
     const customArgs = process.argv.slice(2); // remove `node` and `this-script.js`
     const allArgs = [platformFlag, targetGroup, ...customArgs];

@@ -21,6 +21,8 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 // global window references prevent them from being garbage-collected
 const _windows = {};
 
+app.commandLine.appendSwitch('host-resolver-rules', 'MAP device-manager.scratch.mit.edu 127.0.0.1');
+
 const displayPermissionDeniedWarning = (browserWindow, permissionType) => {
     let title;
     let message;
